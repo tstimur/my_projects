@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  php-fpm:
+    build:
+      context: ./.docker/php
+    hostname: php-fpm
+    container_name: php-fpm
+    depends_on:
+      - db
+    volumes:
+      - './app/public:/var/www/html'
+
+  nginx:
+    image: nginx:latest
+    hostname: nginx
+    container_name: nginx
+    depends_on:
+      - php-fpm
+    ports:
+      - '80:80'
+    volumes:
+      - './app/public:/var/www/html'
+      - './.docker/nginx/conf.d:/etc/nginx/conf.d'
+
+  db:
+    image: postgres:latest
+    restart: always
+    hostname: db
+    container_name: postgresDB
+    environment:
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=qwerty
+    ports:
+      - "5433:5432"
