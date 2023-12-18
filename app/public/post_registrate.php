@@ -6,21 +6,23 @@ $errors = [];      //создаем массив для ошибок
 
 $name = $_POST['name'];
 $email = $_POST['email'];
+
 $password = $_POST['psw'];
 $pswRepeat = $_POST['psw-repeat'];
+
 if (strlen($name) < 2) {        //проверка имени на количество символов
     $errors['name'] = "!Name must be more than 2 symbols!";
 }
 if (strlen($email) < 2) {       //проверка почты на количество символов
     $errors['email'] = "!Email must be more than 2 symbols!";
 }
-if (strlen($password) < 7) {        //проверка пароля на количество символов
-    $errors['password'] = "!Password must be more than 8 symbols!";
-} elseif ($pswRepeat !== $password) {     //проверка на корректность пароля
-    $errors['pswRepeat'] = "!Passwords don't match!";
+if (strlen($password) < 4) {                    //проверка пароля на количество символов
+    $errors['password'] = "!Password must be more than 4 symbols!";
+} elseif ($password !== $pswRepeat) {            //compare the password and pswRepeat
+    $errors['pswRepeat'] = "!Password must be more than 4 symbols!";
+} else {
+    $password = password_hash($password, PASSWORD_DEFAULT);     //encrypt the password
 }
-
-print_r($errors);
 
 if (empty($errors)) {
 //Connect with Data Base
@@ -36,10 +38,13 @@ if (empty($errors)) {
     $statement->execute(['name' => $name]);
     $data = $statement->fetch();
 
-    print_r($data);
+    //print_r($data);
+    header('Location: /get_login.php');
+} else {
+    require_once './get_registrate.php';
 }
 
-require_once("get_registrate.php");
+
 
 ?>
 
