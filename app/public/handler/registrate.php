@@ -32,7 +32,7 @@ if (empty($errors)) {
 //выполнение запроса без возврата данных с помощью команды execute
     $statement->execute(['name' => $name, 'email' => $email, 'password' => $password]);
 
-    header('Location: ./login');
+    header('Location: /login');
 } else {
     require_once './html/registrate.php';
 }

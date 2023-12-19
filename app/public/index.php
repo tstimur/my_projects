@@ -21,8 +21,12 @@ if ($requestUri === '/registrate') {
     }
 } elseif ($requestUri === '/main') {
     if ($requestMethod === 'GET') {
-        require_once './main.php';
-    } else {
+        require_once './handler/main.php';
+    }
+//    elseif ($requestMethod === 'POST') {
+//        require_once './handler/main.php';
+//    }
+    else {
         echo  "Method $requestMethod don't support for $requestUri";
     }
 } else {

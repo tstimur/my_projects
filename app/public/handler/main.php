@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {                     //Проверка user_
 $pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;", "postgres", "postgres");
 
 $stmt = $pdo->query("SELECT *FROM products");
-$products = $stmt->fetchAll();
+$productsAll = $stmt->fetchAll();
 
 
-require_once './html/main.php';
+require_once "./html/main.php";
