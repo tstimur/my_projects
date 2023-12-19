@@ -1,15 +1,16 @@
 <html>
-<form action="post_login.php" method="POST">
+<form action="/login" method="POST">
     <div class="imgcontainer">
         <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
         <label for="email"><b>Email</b></label>
-
+        <label style="color: red"><?php echo $errors['email'] ?? ''; ?></label>
         <input type="text" placeholder="Enter Email" name="email" required>
 
         <label for="psw"><b>Password</b></label>
+        <label style="color: red"><?php echo $errors['password'] ?? ''; ?></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
 
         <button type="submit">Login</button>

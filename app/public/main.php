@@ -1,8 +1,13 @@
 <?php
-
 session_start();
 if (!isset($_SESSION['user_id'])) {                     //Проверка user_id в механизме сессии
-    header('Location: /get_login.php');         //get TRUE, do redirect on login page
+    header('Location: /login');         //get TRUE, do redirect on login page
 }
 
-print_r ("Welcome to main page!");
+$pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;", "postgres", "postgres");
+
+$stmt = $pdo->query("SELECT *FROM products");
+$products = $stmt->fetchAll();
+
+
+require_once './html/main.php';

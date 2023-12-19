@@ -1,7 +1,5 @@
 <?php
 
-//print_r($_POST);
-
 $errors = [];      //создаем массив для ошибок
 
 $name = $_POST['name'];
@@ -33,15 +31,10 @@ if (empty($errors)) {
     $statement = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
 //выполнение запроса без возврата данных с помощью команды execute
     $statement->execute(['name' => $name, 'email' => $email, 'password' => $password]);
-//Возвращаем только что заполненные данные на экран
-    $statement = $pdo->prepare("SELECT * FROM users WHERE name = :name");
-    $statement->execute(['name' => $name]);
-    $data = $statement->fetch();
 
-    //print_r($data);
-    header('Location: /get_login.php');
+    header('Location: ./login');
 } else {
-    require_once './get_registrate.php';
+    require_once './html/registrate.php';
 }
 
 
