@@ -1,35 +1,38 @@
 <?php
+require_once './../Controller/UserController.php';
+require_once './../Controller/MainController.php';
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 
 if ($requestUri === '/registrate') {
+    $userController = new UserController();
     if ($requestMethod === 'GET') {
-        require_once './html/registrate.php';
+        $userController->getRegistrate();
     } elseif ($requestMethod === 'POST') {
-        require_once './handler/registrate.php';
+        $userController->registrate();
     } else {
         echo  "Method $requestMethod don't support for $requestUri";
     }
 } elseif ($requestUri === '/login') {
+    $userController = new UserController();
     if ($requestMethod === 'GET') {
-        require_once './html/login.php';
+        $userController->getLogin();
     } elseif ($requestMethod === 'POST') {
-        require_once './handler/login.php';
+        $userController->login();
     } else {
         echo  "Method $requestMethod don't support for $requestUri";
     }
 } elseif ($requestUri === '/main') {
+    $mainController = new MainController();
+    $userController = new UserController();
     if ($requestMethod === 'GET') {
-        require_once './handler/main.php';
-    }
-//    elseif ($requestMethod === 'POST') {
-//        require_once './handler/main.php';
-//    }
-    else {
+        $mainController->getProducts();
+    } elseif($requestUri === '/login') {
+        $userController->logout();
+    } else {
         echo  "Method $requestMethod don't support for $requestUri";
     }
 } else {
     require_once './html/not_found.php';
 }
-

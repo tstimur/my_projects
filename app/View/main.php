@@ -22,8 +22,8 @@
         <?php endforeach; ?>
     </div>
 </div>
-</html>
 
+</html>
 <style>
     body {
         font-style: sans-serif;
@@ -65,4 +65,59 @@
         font-size: 18px;
         background-color: white;
     }
+
+</style>
+
+
+
+<html>
+<div class="wrapper">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-6 col-md-4 logo-wrapper">
+            <img src="https://www.freeiconspng.com/uploads/abstract-png-15.png" alt="a free logo" class="logo">
+        </div>
+        <div class="col-6 col-md-7 sign-out-wrapper clearfix">
+            <a href="/login" class="sign-out pull-right">
+                <span>Log Out</span>
+                <i class="fa fa-sign-out"></i>
+            </a>
+        </div>
+    </div>
+</div>
+</html>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto+Mono:400,700");
+
+    .wrapper {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .logo {
+        width: 50%;
+    }
+
+    .sign-out-wrapper {
+        margin-right: 1em;
+    }
+
+    .sign-out {
+        color: black;
+        outline: none;
+        text-decoration: none;
+        transition: all 0.1s;
+    }
+
+    .sign-out:focus,
+    .sign-out:hover,
+    .sign-out:active {
+        color: black;
+        background-color: grey;
+        text-decoration: none;
+    }
+
+    .sign-out > span {
+        margin: 0.1em;
+    }
+
 </style>
