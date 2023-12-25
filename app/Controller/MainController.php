@@ -12,7 +12,7 @@ class MainController
         $pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;", "postgres", "postgres");
 
         $stmt = $pdo->query("SELECT *FROM products");
-        $productsAll = $stmt->fetchAll();
+        $products = $stmt->fetchAll();
 
 
         require_once "./../View/main.php";

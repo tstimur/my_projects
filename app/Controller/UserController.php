@@ -6,7 +6,7 @@ class UserController
 
     public function __construct()
     {
-        $this->pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;",  "postgres",  "postgres");
+        $this->pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;", "postgres", "postgres");
     }
 
     public function getRegistrate()

@@ -8,5 +8,20 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="testdb@localhost" uuid="63e987eb-7e6c-43ec-b542-0de3887a4a6f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/testdb</jdbc-url>
+      <working-dir>$PROJECT_DIR$/sourcefiles/postgres</working-dir>
+      <vm-env>
+        <property name="DB_CONNECTION" value="pgsql" />
+        <property name="DB_HOST" value="db" />
+        <property name="DB_PORT" value="5432" />
+        <property name="DB_DATABASE" value="dbtest" />
+        <property name="DB_USERNAME" value="tstimurb" />
+        <property name="DB_PASSWORD" value="qwerty123" />
+      </vm-env>
+    </data-source>
   </component>
 </project>

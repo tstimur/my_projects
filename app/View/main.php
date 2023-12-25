@@ -2,8 +2,7 @@
 <div class="container">
     <h3>Catalog</h3>
     <div class="card-deck">
-        <?php $products = $productsAll;
-        foreach ($products as $product): ?>
+        <?php foreach ($products as $product): ?>
             <div class="card text-center">
                 <a href="#">
                     <div class="card-header">
