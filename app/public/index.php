@@ -34,5 +34,5 @@ if ($requestUri === '/registrate') {
         echo  "Method $requestMethod don't support for $requestUri";
     }
 } else {
-    require_once './html/not_found.php';
+    require_once './../View/not_found.php';
 }
