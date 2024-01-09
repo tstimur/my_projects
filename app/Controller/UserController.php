@@ -5,7 +5,7 @@ require_once './../Model/User.php';
 class UserController
 {
     private User $modelUser;
-    private array $errors = []; //create array for validation errors
+    //private array $errors = []; //create array for validation errors
 
     public function __construct()
     {
