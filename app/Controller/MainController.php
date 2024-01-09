@@ -2,6 +2,12 @@
 
 class MainController
 {
+    private Product $productModel;
+
+    function __construct()
+    {
+        $this->productModel = new Product();
+    }
     public function getProducts()
     {
         session_start();
@@ -9,11 +15,7 @@ class MainController
             header('Location: /login');         //get TRUE, do redirect on login page
         }
 
-        $pdo = new PDO("pgsql:host=db;port=5432;dbname=postgres;", "postgres", "postgres");
-
-        $stmt = $pdo->query("SELECT *FROM products");
-        $products = $stmt->fetchAll();
-
+        $products = $this->productModel->getAll();
 
         require_once "./../View/main.php";
     }
